@@ -6,9 +6,9 @@ before_install:
   - docker build -t react-test -f ./client/dev.Dockerfile ./client
 
 script:
-  - docker run -e CI=true react-test npm test -- --coverage
-  - echo username $DOCKER_USERNAME
-  - echo pwd $DOCKER_PASSWORD
+  - export FOO=$DOCKER_USERNAME
+  - echo $FOO
+  #- docker run -e CI=true react-test npm test -- --coverage
 
 after_success:
   - docker build -t multi-client ./client
