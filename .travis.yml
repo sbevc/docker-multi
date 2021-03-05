@@ -7,6 +7,8 @@ before_install:
 
 script:
   - docker run -e CI=true react-test npm test -- --coverage
+  - echo username $DOCKER_USERNAME
+  - echo pwd $DOCKER_PASSWORD
 
 after_success:
   - docker build -t multi-client ./client
