@@ -6,6 +6,8 @@ before_install:
   - docker build -t react-test -f ./client/dev.Dockerfile ./client
 
 script:
+  - echo "#################"
+  - echo `ls`
   - docker run -e CI=true USERNAME/react-test npm test -- --coverage
 
 after_success:
